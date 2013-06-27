@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Alumnos</title>
 		<meta charset="utf-8"/>
 		<title>Index de consumo de Web Service RESTful</title>
 		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
@@ -13,7 +14,7 @@
 			 <legend>  Agregue un nuevo Alumno  
 
 
-<a class="btn btn-small"  id="btnNuevo " href="#Nuevo"><i class="icon-star"></i> Nuevo Alumno</a>
+<a class="btn btn-small"  id="btnNuevo " href="#Nuevo"><i class="icon-user"></i> Nuevo Alumno</a>
 
  
 			 </legend>
@@ -24,19 +25,21 @@
 
 		<div id="divFormulario">
 		 
-  
+ 
+<table class="table table-striped " >
+           
+              <tbody >
+        		<tr>
+                  <th><input type="text" id="txtNombre" placeholder ="Nombre" /></th>
+                  <th><input type="text" id="txtEdad" placeholder="Edad"/></th>
+                  <th><input type="text" id="txtPromedio" placeholder="Promedio"/> </th>
 
+                  <th><input type="button" id="btnGuardar" class="btn btn-primary" value="Guardar"/></th>
+              	</tr>
+              </tbody>
+            </table>
 
-			
-	 
-			<input type="text" id="txtNombre" placeholder ="Nombre" />
-			<br />
-	 
-			<input type="text" id="txtEdad" placeholder="Edad"/>
-			<br />
-			<input type="text" id="txtPromedio" placeholder="Promedio"/>
-			<br />
-			<input type="button" id="btnGuardar" class="btn btn-primary" value="Guardar"/>
+	  
 		</div>
 	 
 		 
@@ -45,8 +48,8 @@
                 <tr>
                   <th>Nombre</th>
                   <th>Edad</th>
-                  <th>Promedio</th>
-                  <th>Settings</th>
+                  <th>Promedio </th>
+                  <th> <i class="icon-cog" > </i>Settings</th>
                 </tr>
               </thead>
               <tbody id="divListaAlumnos">

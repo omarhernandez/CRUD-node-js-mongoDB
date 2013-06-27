@@ -46,7 +46,7 @@ actualizarDivListaAlumnos = function(){
 
 		$("#divListaAlumnos").html("");
 		var contenido_div= ''  ;
-		
+	 
 		for(var i = 0; i< respuesta.length;i++){
 	
 
@@ -54,10 +54,10 @@ actualizarDivListaAlumnos = function(){
 				contenido_div += '<td>'+respuesta[i].nombre+'</td>'
 				contenido_div += '<td>'+respuesta[i].edad+'</td>'
 				contenido_div +=' <td>'+respuesta[i].promedio+'</td>'
-				contenido_div += ' <td> <input type="button" value="Editar" class="btnEditar btn btn-info"/> '
+				contenido_div += ' <td>  <a href="#Edit" value="Editar" class="btnEditar btn btn-info" ><i class="icon-white icon-pencil"></i> Editar</a>   '
 				contenido_div += ' <input type="button" value="Eliminar" class="btnEliminar btn"/> </tr>'
 
-				$("#divListaAlumnos").append(  $(contenido_div).hide().delay(i*400).fadeIn() );
+				$("#divListaAlumnos").append(  $(contenido_div).hide().delay(i*200).fadeIn() );
 
 				contenido_div = '';
 
