@@ -7,6 +7,9 @@ var PORT  = 8080;
 
 var BSON = mongodb.BSONPure;
 
+
+//configuracion
+
 servidor.use(express.static(__dirname+"/publico"));
 
 servidor.use(express.bodyParser());

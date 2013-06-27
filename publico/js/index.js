@@ -44,7 +44,8 @@ $(document).ready(function(){
 actualizarDivListaAlumnos = function(){
 	$.get("/alumnos",{},function(respuesta){
 
-		var contenido_div= '' || {} ;
+		$("#divListaAlumnos").html("");
+		var contenido_div= ''  ;
 		
 		for(var i = 0; i< respuesta.length;i++){
 	
@@ -55,9 +56,14 @@ actualizarDivListaAlumnos = function(){
 				contenido_div +=' <td>'+respuesta[i].promedio+'</td>'
 				contenido_div += ' <td> <input type="button" value="Editar" class="btnEditar btn btn-info"/> '
 				contenido_div += ' <input type="button" value="Eliminar" class="btnEliminar btn"/> </tr>'
+
+				$("#divListaAlumnos").append(  $(contenido_div).hide().delay(i*400).fadeIn() );
+
+				contenido_div = '';
+
 		}
 
-		$("#divListaAlumnos").html(contenido_div);
+		
 
 		$(".btnEliminar").click(function(){
 			var btnPresionado = $(this);
