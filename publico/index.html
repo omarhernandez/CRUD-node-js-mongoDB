@@ -5,10 +5,18 @@
 		<title>Index de consumo de Web Service RESTful</title>
 		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">	
 	</head>
 	<body>		
+
+
+
+
+
+
 		<div id="divFormulario">
-			Agregue un nuevo Alumno
+			<label for=""> Agregue un nuevo Alumno</label>
+			
 			<br />
 			<input type="button" id="btnNuevo" value="Nuevo"/>
 			<br />
@@ -21,10 +29,23 @@
 			Promedio:
 			<input type="text" id="txtPromedio"/>
 			<br />
-			<input type="button" id="btnGuardar" value="Guardar"/>
+			<input type="button" id="btnGuardar" class="btn btn-primary" value="Guardar"/>
 		</div>
-		<div id="divListaAlumnos">
-			Aqui se desplegaran los alumnos
-		</div>
+	 
+		 
+			<table class="table table-striped  table-hover" >
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Edad</th>
+                  <th>Promedio</th>
+                  <th>Settings</th>
+                </tr>
+              </thead>
+              <tbody id="divListaAlumnos">
+      
+              </tbody>
+            </table>
+
 	</body>
 </html>

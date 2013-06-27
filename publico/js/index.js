@@ -43,29 +43,27 @@ $(document).ready(function(){
 //Functiones 
 actualizarDivListaAlumnos = function(){
 	$.get("/alumnos",{},function(respuesta){
-		var contenido_div="";
+
+		var contenido_div= '' || {} ;
+		
 		for(var i = 0; i< respuesta.length;i++){
-			contenido_div+=
-				"<div class='divAlumno'>"+
-					"<hidden class='hdIndice' value='"+respuesta[i]._id+"'/>"+
-					"Nombre: "+respuesta[i].nombre+
-					"<br />"+
-					"Edad: "+respuesta[i].edad+
-					"<br />"+
-					"Promedio: "+respuesta[i].promedio+
-					"<br />"+
-					"<input type='button' value='Editar' class='btnEditar'/>"+					
-					"<input type='button' value='Eliminar' class='btnEliminar'/>"+					
-				"</div>";
+	
+
+				contenido_div += '<tr class="divAlumno" data='+respuesta[i]._id+'>';
+				contenido_div += '<td>'+respuesta[i].nombre+'</td>'
+				contenido_div += '<td>'+respuesta[i].edad+'</td>'
+				contenido_div +=' <td>'+respuesta[i].promedio+'</td>'
+				contenido_div += ' <td> <input type="button" value="Editar" class="btnEditar btn btn-info"/> '
+				contenido_div += ' <input type="button" value="Eliminar" class="btnEliminar btn"/> </tr>'
 		}
 
 		$("#divListaAlumnos").html(contenido_div);
 
 		$(".btnEliminar").click(function(){
 			var btnPresionado = $(this);
-			var divAlumno = btnPresionado.parent();
-			var hdIndice = divAlumno.children(".hdIndice");
-			var indice = hdIndice.attr("value");						
+			var divAlumno = btnPresionado.parent().parent();
+			var indice = divAlumno.attr("data");
+							
 			$.ajax({
 				type:"DELETE",
 				url:"/alumnos/"+indice,
@@ -77,9 +75,9 @@ actualizarDivListaAlumnos = function(){
 
 		$(".btnEditar").click(function(){	
 			var btnPresionado = $(this);
-			var divAlumno = btnPresionado.parent();
-			var hdIndice = divAlumno.children(".hdIndice");
-			var indice = hdIndice.attr("value");	
+			var divAlumno = btnPresionado.parent().parent();
+			var indice = divAlumno.attr("data");
+				
 			id_editado = indice;
 			$.get("/alumnos/"+indice,{},function(resultado){
 				$("#txtNombre").val(resultado.nombre);
